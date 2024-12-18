@@ -8,11 +8,15 @@ function addTask() {
     const taskText = taskInput.value.trim(); 
 
     if (taskText === '') {
-        alert('Please, write a new task.');
-        return;
+        Swal.fire({
+            icon: "error",
+            title: "Be careful",
+            text: "Please, write a task before you add it.",
+            footer: '<a href="#">Need help?</a>'
+        });
+        return; 
     }
 
-    // Creates a new element for the list
     const listItem = document.createElement('li');
     listItem.innerHTML = `
         <span>${taskText}</span>
@@ -27,10 +31,8 @@ function addTask() {
     taskInput.value = '';
 }
 
-// Listen clic in the button
-addTaskButton.addEventListener('click', addTask);
+    addTaskButton.addEventListener('click', addTask);
 
-// Listen clics in all the list
 taskList.addEventListener('click', function (event) {
     if (event.target.classList.contains('complete-btn')) {
         const taskItem = event.target.parentElement.parentElement;

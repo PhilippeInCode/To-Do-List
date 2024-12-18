@@ -21,6 +21,10 @@ body{
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 .tittle{
@@ -35,14 +39,17 @@ body{
 }
 
 #task {
-    width: 40%;
+    font-size: 1.2rem;
+    width: 70%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px;
 }
 
 #add-task {
-    padding: 10px 20px;
+    font-size: 1.2rem;
+    padding: 10px 15px;
     border: none;
     background-color: #4a77d2;
     color: white;
@@ -57,6 +64,10 @@ body{
 #task-list {
     list-style: none;
     padding: 0;
+    margin: 0;
+    max-height: calc(100%  - 150px);
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
 }
 
 #task-list li {
@@ -65,6 +76,11 @@ body{
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+#task-list li:nth-child(odd) {
+    background-color: #f1f1f1; 
 }
 
 .completed {
