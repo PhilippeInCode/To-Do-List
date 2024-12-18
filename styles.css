@@ -2,7 +2,22 @@
     font-family: 'Chakra Petch';
 }
 
+ html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 .main-section{
+    width: 50%;
+    height: 50%;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -12,32 +27,50 @@
     text-align: center;
 }
 
+#task-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
+#task {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
+#add-task {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4a77d2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+#add-task:hover {
+    background-color: #3a46ec;
+}
 
+#task-list {
+    list-style: none;
+    padding: 0;
+}
 
+#task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
 
 .author{
     position: absolute;
