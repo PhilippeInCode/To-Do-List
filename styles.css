@@ -43,6 +43,7 @@ body{
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
+    font-size: x-large;
 }
 
 #add-task {
@@ -53,6 +54,7 @@ body{
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    font-size: xx-large;
 }
 
 #add-task:hover {
@@ -106,5 +108,44 @@ body{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.datetime-container {
+    position: absolute;
+    top: 10%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000;
+}
+
+.clock {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.5rem;
+    color: #4a77d2;
+    font-weight: bold;
+    margin-top: 10px; 
+    text-align: center;
+}
+
+.calendar {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2rem;
+    color: #4a77d2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.calendar-container {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
     text-align: center;
 }

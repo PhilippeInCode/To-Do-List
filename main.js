@@ -2,6 +2,33 @@ const taskInput = document.getElementById('task');
 const addTaskButton = document.getElementById('add-task');
 const taskList = document.getElementById('task-list');
 const deleteAllButton = document.getElementById('delete-all');
+const clockElement = document.getElementById('clock');
+const calendarElement = document.getElementById('calendar');
+
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+function renderCalendar() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = now.toLocaleDateString('en-US', options);
+    calendarElement.innerHTML = `
+        <div class="calendar-container">
+            ${formattedDate}
+        </div>
+    `;
+}
+
+function initializeDateTime() {
+    updateClock();
+    renderCalendar();
+    setInterval(updateClock, 1000); 
+}
 
 function updateDeleteAllVisibility() {
     if (taskList.children.length > 0) {
@@ -45,9 +72,9 @@ taskList.addEventListener('click', function (event) {
         const taskItem = event.target.parentElement.parentElement;
 
         Swal.fire({
-            title: "Be careful",
+            title: "Attention",
             text: "Do you want to mark this task as completed?",
-            icon: "warning",
+            icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#4CAF50",
             cancelButtonColor: "#d33",
@@ -65,7 +92,8 @@ taskList.addEventListener('click', function (event) {
         const taskItem = event.target.parentElement.parentElement;
 
         Swal.fire({
-            title: "Do you want to delete the task?",
+            title: "Be careful",
+            text:"Do you want to delete the task?", 
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#d33",
@@ -122,7 +150,8 @@ function deleteAllTasks() {
     }
 
     Swal.fire({
-        title: "Do you want to delete all the tasks?",
+        title: "Be careful",
+        text: "Do you want to delete all the tasks?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",
@@ -143,3 +172,5 @@ deleteAllButton.addEventListener('click', deleteAllTasks);
 document.addEventListener('DOMContentLoaded', loadTasks);
 taskList.addEventListener('click', saveTasks);
 addTaskButton.addEventListener('click', saveTasks);
+document.addEventListener('DOMContentLoaded', initializeDateTime);
+
