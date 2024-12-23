@@ -1,9 +1,18 @@
 const taskInput = document.getElementById('task');
 const addTaskButton = document.getElementById('add-task');
 const taskList = document.getElementById('task-list');
+const deleteAllButton = document.getElementById('delete-all');
+
+function updateDeleteAllVisibility() {
+    if (taskList.children.length > 0) {
+        deleteAllButton.style.display = 'block';
+    } else {
+        deleteAllButton.style.display = 'none';
+    }
+}
 
 function addTask() {
-    const taskText = taskInput.value.trim(); 
+    const taskText = taskInput.value.trim();
 
     if (taskText === '') {
         Swal.fire({
@@ -12,7 +21,7 @@ function addTask() {
             text: "Please, write a task before you add it.",
             footer: '<a href="https://www.adobe.com/acrobat/hub/how-to-categorize-your-to-do-list.html">Need help?</a>'
         });
-        return; 
+        return;
     }
 
     const listItem = document.createElement('li');
@@ -26,8 +35,8 @@ function addTask() {
 
     taskList.appendChild(listItem);
     taskInput.value = '';
+    updateDeleteAllVisibility(); 
 }
-
 
 addTaskButton.addEventListener('click', addTask);
 
@@ -47,8 +56,8 @@ taskList.addEventListener('click', function (event) {
         }).then((result) => {
             if (result.isConfirmed) {
                 taskItem.classList.add('completed');
-                taskItem.style.backgroundColor = "#d4f7d4"; 
-                taskItem.style.color = "#2d7d2d"; 
+                taskItem.style.backgroundColor = "#d4f7d4";
+                taskItem.style.color = "#2d7d2d";
                 Swal.fire("Marked!", "Your task has been marked as completed.", "success");
             }
         });
@@ -67,6 +76,7 @@ taskList.addEventListener('click', function (event) {
             if (result.isConfirmed) {
                 taskList.removeChild(taskItem);
                 Swal.fire("Deleted!", "Your task has been deleted.", "success");
+                updateDeleteAllVisibility(); 
             }
         });
     }
@@ -93,14 +103,43 @@ function loadTasks() {
         `;
         if (task.completed) {
             listItem.classList.add('completed');
-            listItem.style.backgroundColor = "#d4f7d4"; 
-            listItem.style.color = "#2d7d2d"; 
+            listItem.style.backgroundColor = "#d4f7d4";
+            listItem.style.color = "#2d7d2d";
         }
         taskList.appendChild(listItem);
     });
+    updateDeleteAllVisibility(); 
 }
 
-document.addEventListener('DOMContentLoaded', loadTasks);
+function deleteAllTasks() {
+    if (taskList.children.length === 0) {
+        Swal.fire({
+            icon: "info",
+            title: "No tasks",
+            text: "There are no tasks to delete."
+        });
+        return;
+    }
 
+    Swal.fire({
+        title: "Do you want to delete all the tasks?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            taskList.innerHTML = '';
+            saveTasks();
+            updateDeleteAllVisibility(); 
+            Swal.fire("Deleted!", "All the tasks are deleted.", "success");
+        }
+    });
+}
+
+deleteAllButton.addEventListener('click', deleteAllTasks);
+document.addEventListener('DOMContentLoaded', loadTasks);
 taskList.addEventListener('click', saveTasks);
 addTaskButton.addEventListener('click', saveTasks);

@@ -31,20 +31,18 @@ body{
     text-align: center;
 }
 
-#task-input {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+.task-input {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
 }
 
 #task {
     font-size: 1.2rem;
-    width: 70%;
+    flex-grow: 1; 
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
 }
 
 #add-task {
@@ -60,6 +58,23 @@ body{
 #add-task:hover {
     background-color: #3a46ec;
 }
+
+#delete-all {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: none;
+    background-color: #e63946; 
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto; 
+    display: none;
+}
+
+#delete-all:hover {
+    background-color: #d62828; 
+}
+
 
 #task-list {
     list-style: none;
@@ -81,11 +96,6 @@ body{
 
 #task-list li:nth-child(odd) {
     background-color: #f1f1f1; 
-}
-
-.completed {
-    text-decoration: line-through;
-    color: gray;
 }
 
 .author{
