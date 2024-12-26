@@ -149,3 +149,79 @@ body{
     display: inline-block;
     text-align: center;
 }
+
+@media (max-width: 601px) {
+    .main-section {
+        width: 95%;
+    }
+
+    .tittle {
+        font-size: 1.2rem;
+    }
+
+    #task {
+        font-size: 0.9rem;
+    }
+
+    #add-task {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .main-section {
+        width: 70%;
+    }
+
+    .tittle {
+        font-size: 1.8rem;
+    }
+
+    #task {
+        font-size: 1.1rem;
+    }
+
+    #add-task {
+        font-size: 1.1rem;
+        padding: 10px 12px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main-section {
+        width: 60%;
+    }
+
+    .tittle {
+        font-size: 2rem;
+    }
+
+    #task {
+        font-size: 1.2rem;
+    }
+
+    #add-task {
+        font-size: 1.2rem;
+        padding: 12px 15px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .main-section {
+        width: 50%;
+    }
+
+    .tittle {
+        font-size: 2.2rem;
+    }
+
+    #task {
+        font-size: 1.3rem;
+    }
+
+    #add-task {
+        font-size: 1.3rem;
+        padding: 15px 18px;
+    }
+}
