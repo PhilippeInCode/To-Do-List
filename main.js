@@ -71,6 +71,16 @@ taskList.addEventListener('click', function (event) {
     if (event.target.classList.contains('complete-btn')) {
         const taskItem = event.target.parentElement.parentElement;
 
+        // Verificar si la tarea ya está completada
+        if (taskItem.classList.contains('completed')) {
+            Swal.fire({
+                icon: "info",
+                title: "Task already completed",
+                text: "This task is already marked as completed."
+            });
+            return; // Salir de la función si ya está completada
+        }
+
         Swal.fire({
             title: "Attention",
             text: "Do you want to mark this task as completed?",
@@ -93,7 +103,7 @@ taskList.addEventListener('click', function (event) {
 
         Swal.fire({
             title: "Be careful",
-            text:"Do you want to delete the task?", 
+            text: "Do you want to delete the task?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#d33",
