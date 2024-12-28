@@ -26,8 +26,8 @@
 - Responsive and modern design.
 - Dark and light mode toggle for user preference.
 
-### Calendar Integration:
-- A dynamic calendar displaying the current date in an aesthetically pleasing format.
+### Calendar and clock integration:
+- A dynamic calendar displaying the current date and clock with the current time in an aesthetically pleasing format.
 
 ---
 
