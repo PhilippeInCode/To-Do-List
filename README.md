@@ -50,9 +50,10 @@ Follow these steps to clone and run the project locally:
    git clone https://github.com/PhilippeInCode/To-Do-List.git
    
 2. Enter the project directory:
+
     cd To-Do-list
 
-3. Open index.html in your preferred browser to launch the application
+4. Open index.html in your preferred browser to launch the application
 
 ---
 
