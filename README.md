@@ -26,8 +26,8 @@
 - Responsive and modern design.
 - Dark and light mode toggle for user preference.
 
-### Calendar Integration:
-- A dynamic calendar displaying the current date in an aesthetically pleasing format.
+### Calendar and clock integration:
+- A dynamic calendar displaying the current date and clock with the current time in an aesthetically pleasing format.
 
 ---
 
@@ -50,20 +50,26 @@ Follow these steps to clone and run the project locally:
    git clone https://github.com/PhilippeInCode/To-Do-List.git
    
 2. Enter the project directory:
+
     cd To-Do-list
 
-3. Open index.html in your preferred browser to launch the application
+4. Open index.html in your preferred browser to launch the application
 
 ---
 
 ## Project Structure
 
 to-do-list/
+
 │
-├── index.html       # Main HTML file
-├── style.css        # Application styling
-├── script.js        # Application logic
-└── README.md        # Project documentation
+
+├── index.html    
+
+├── style.css      
+
+├── script.js     
+
+└── README.md        
 
 ---
 
