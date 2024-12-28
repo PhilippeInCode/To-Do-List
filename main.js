@@ -4,6 +4,7 @@ const taskList = document.getElementById('task-list');
 const deleteAllButton = document.getElementById('delete-all');
 const clockElement = document.getElementById('clock');
 const calendarElement = document.getElementById('calendar');
+const themeButton = document.getElementById('theme-button');
 
 function updateClock() {
     const now = new Date();
@@ -178,9 +179,32 @@ function deleteAllTasks() {
     });
 }
 
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        themeButton.textContent = 'Light';
+        Swal.fire({
+            icon: 'success',
+            title: 'Dark Mode Enabled',
+            text: 'The interface is now in dark mode.',
+            background: '#333',
+            color: '#e0e0e0'
+        });
+    } else {
+        themeButton.textContent = 'Dark';
+        Swal.fire({
+            icon: 'success',
+            title: 'Light Mode Enabled',
+            text: 'The interface is now in light mode.',
+            background: '#f9f9f9',
+            color: '#333'
+        });
+    }
+}
+
 deleteAllButton.addEventListener('click', deleteAllTasks);
 document.addEventListener('DOMContentLoaded', loadTasks);
 taskList.addEventListener('click', saveTasks);
 addTaskButton.addEventListener('click', saveTasks);
 document.addEventListener('DOMContentLoaded', initializeDateTime);
-
+themeButton.addEventListener('click', toggleTheme);
