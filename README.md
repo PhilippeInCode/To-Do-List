@@ -59,11 +59,16 @@ Follow these steps to clone and run the project locally:
 ## Project Structure
 
 to-do-list/
+
 │
-├── index.html       # Main HTML file
-├── style.css        # Application styling
-├── script.js        # Application logic
-└── README.md        # Project documentation
+
+├── index.html    
+
+├── style.css      
+
+├── script.js     
+
+└── README.md        
 
 ---
 
