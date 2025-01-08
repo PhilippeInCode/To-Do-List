@@ -45,6 +45,7 @@ function addTask() {
     if (taskText === '') {
         Swal.fire({
             icon: "error",
+            heightAuto: false,
             title: "Be careful",
             text: "Please, write a task before you add it.",
             footer: '<a href="https://www.adobe.com/acrobat/hub/how-to-categorize-your-to-do-list.html">Need help?</a>'
@@ -75,6 +76,7 @@ taskList.addEventListener('click', function (event) {
         if (taskItem.classList.contains('completed')) {
             Swal.fire({
                 icon: "info",
+                heightAuto: false,
                 title: "Task already completed",
                 text: "This task is already marked as completed."
             });
@@ -83,6 +85,7 @@ taskList.addEventListener('click', function (event) {
 
         Swal.fire({
             title: "Attention",
+            heightAuto: false,
             text: "Do you want to mark this task as completed?",
             icon: "question",
             showCancelButton: true,
@@ -95,7 +98,12 @@ taskList.addEventListener('click', function (event) {
                 taskItem.classList.add('completed');
                 taskItem.style.backgroundColor = "#d4f7d4";
                 taskItem.style.color = "#2d7d2d";
-                Swal.fire("Marked!", "Your task has been marked as completed.", "success");
+                Swal.fire({
+                    title: "Marked!", 
+                    text: "Your task has been marked as completed.", 
+                    icon: "success",
+                    heightAuto: false,
+                });
             }
         });
     } else if (event.target.classList.contains('delete-btn')) {
@@ -103,6 +111,7 @@ taskList.addEventListener('click', function (event) {
 
         Swal.fire({
             title: "Be careful",
+            heightAuto: false,
             text: "Do you want to delete the task?",
             icon: "warning",
             showCancelButton: true,
@@ -113,7 +122,12 @@ taskList.addEventListener('click', function (event) {
         }).then((result) => {
             if (result.isConfirmed) {
                 taskList.removeChild(taskItem);
-                Swal.fire("Deleted!", "Your task has been deleted.", "success");
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your task has been deleted.",
+                    icon: "success",
+                    heightAuto: false,
+                });
                 updateDeleteAllVisibility(); 
             }
         });
@@ -153,6 +167,7 @@ function deleteAllTasks() {
     if (taskList.children.length === 0) {
         Swal.fire({
             icon: "info",
+            heightAuto: false,
             title: "No tasks",
             text: "There are no tasks to delete."
         });
@@ -161,6 +176,7 @@ function deleteAllTasks() {
 
     Swal.fire({
         title: "Be careful",
+        heightAuto: false,
         text: "Do you want to delete all the tasks?",
         icon: "warning",
         showCancelButton: true,
@@ -173,7 +189,12 @@ function deleteAllTasks() {
             taskList.innerHTML = '';
             saveTasks();
             updateDeleteAllVisibility(); 
-            Swal.fire("Deleted!", "All the tasks are deleted.", "success");
+            Swal.fire({
+                title: "Deleted!",
+                text: "All the tasks are deleted.",
+                icon: "success",
+                heightAuto: false,
+            });
         }
     });
 }
@@ -184,6 +205,7 @@ function toggleTheme() {
         themeButton.textContent = 'Light';
         Swal.fire({
             icon: 'success',
+            heightAuto: false,
             title: 'Dark Mode Enabled',
             text: 'The interface is now in dark mode.',
             background: '#333',
@@ -193,6 +215,7 @@ function toggleTheme() {
         themeButton.textContent = 'Dark';
         Swal.fire({
             icon: 'success',
+            heightAuto: false,
             title: 'Light Mode Enabled',
             text: 'The interface is now in light mode.',
             background: '#f9f9f9',
