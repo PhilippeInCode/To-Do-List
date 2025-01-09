@@ -230,3 +230,4 @@ taskList.addEventListener('click', saveTasks);
 addTaskButton.addEventListener('click', saveTasks);
 document.addEventListener('DOMContentLoaded', initializeDateTime);
 themeButton.addEventListener('click', toggleTheme);
+
